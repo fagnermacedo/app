@@ -1,15 +1,35 @@
 <template>
+  <TheHeader
+    v-show="showHeader"
+  />
+
+  <div v-show="showName">
+     Nome : {{ firstName }} <br>
+     Sobrenome : {{  lastName }}
+  </div>
   <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App"/>
+  
 </template>
 
 <script>
+import TheHeader from './components/TheHeader.vue'
 import HelloWorld from './components/HelloWorld.vue'
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HelloWorld, TheHeader
+  },
+
+  data() {
+    return {
+      showHeader: true,
+      firstName: "John",
+      lastName: "Snow",
+      showName: true
+    }
   }
 }
 </script>
